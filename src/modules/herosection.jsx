@@ -1,4 +1,5 @@
-import Spline from '@splinetool/react-spline';
+import Spline from "@splinetool/react-spline";
+
 
 const HeroSection = () => {
   return (
