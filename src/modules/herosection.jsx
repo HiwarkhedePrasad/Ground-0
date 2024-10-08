@@ -1,4 +1,3 @@
-import Spline from "@splinetool/react-spline";
 
 
 const HeroSection = () => {
@@ -11,9 +10,7 @@ const HeroSection = () => {
         <p className="text-lg mb-6">
           Easily find and collaborate with developers who share your interests.
         </p>
-        <Spline
-          scene="https://prod.spline.design/PY531-6KKJb8AM0B/scene.splinecode" 
-        />
+      
         <a
           href="/search"
           className="bg-white text-blue-500 hover:bg-blue-100 px-6 py-3 rounded-lg font-semibold transition duration-300"
