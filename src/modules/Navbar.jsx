@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-blue-600 text-white">
+    <nav className="flex justify-between items-center p-4  text-white">
       <h1 className="text-2xl font-bold">Ground-0</h1>
       
       {/* Desktop Menu */}
