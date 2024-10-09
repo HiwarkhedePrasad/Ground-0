@@ -8,7 +8,7 @@ const SearchBox = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalUsers, setTotalUsers] = useState(0);
-  const [searchPerformed, setSearchPerformed] = useState(false); // New state to track if a search has been performed
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   document.title = "Find Developer";
 
@@ -21,7 +21,7 @@ const SearchBox = () => {
       setUsers(response.data.items);
       setTotalUsers(response.data.total_count);
       setCurrentPage(page);
-      setSearchPerformed(true); // Set searchPerformed to true after search
+      setSearchPerformed(true);
     } catch (error) {
       console.error("Error fetching users:", error);
     } finally {
@@ -30,28 +30,28 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-blue-800 h-screen flex flex-col items-center justify-center">
+    <div className="bg-gradient-to-r from-blue-500 to-blue-800 min-h-screen flex flex-col items-center justify-center p-4">
       <div className="text-center text-white p-6">
-        <h1 className="text-5xl font-bold mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
           Connect with Fellow Developers
         </h1>
         <p className="text-lg mb-6">
           Easily find and collaborate with developers who share your interests.
         </p>
 
-        <div className="flex justify-center items-center gap-4 mb-6">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-6">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && fetchUsers()}
-            className="border border-white rounded-lg px-4 py-2 bg-blue-600 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-300 w-64"
+            className="border border-white rounded-lg px-4 py-2 bg-blue-600 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-300 w-full md:w-64"
             placeholder="Search for users..."
           />
           <button
             onClick={() => fetchUsers()}
             aria-label="Search users"
-            className="bg-white text-blue-500 hover:bg-blue-100 rounded-lg font-semibold transition duration-300 w-64 px-4 py-2"
+            className="bg-white text-blue-500 hover:bg-blue-100 rounded-lg font-semibold transition duration-300 w-full md:w-64 px-4 py-2"
           >
             Search
           </button>
@@ -78,7 +78,6 @@ const SearchBox = () => {
             ))}
         </div>
 
-        {/* Show Pagination Controls only if search has been performed */}
         {searchPerformed && (
           <div className="flex justify-center mt-4">
             <button
