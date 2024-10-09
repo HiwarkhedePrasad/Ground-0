@@ -10,11 +10,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center p-4  text-white">
+    <nav className="flex justify-between items-center p-4 bg-blue-700 text-white"> {/* Darker background */}
       <h1 className="text-2xl font-bold">Ground-0</h1>
       
       {/* Desktop Menu */}
-      <div className="hidden md:flex space-x-4">
+      <div className="hidden md:flex space-x-6"> {/* Increased space between buttons */}
         <LoginBtn />
         <SignupButton />
       </div>
@@ -27,15 +27,14 @@ const Navbar = () => {
       </div>
       
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute top-16 right-4  rounded-md shadow-lg p-4 md:hidden">
-          <LoginBtn />
-          <SignupButton />
-        </div>
-      )}
+      <div 
+        className={`absolute top-16 right-0 bg-blue-800 rounded-md shadow-lg p-4 md:hidden transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <LoginBtn />
+        <SignupButton />
+      </div>
     </nav>
   );
 };
 
 export default Navbar;
-
