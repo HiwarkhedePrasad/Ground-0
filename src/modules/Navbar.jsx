@@ -5,7 +5,7 @@ import SignupButton from './Signup';
 const Navbar = () => {
   return (
     <nav className="flex justify-between items-center p-4  text-white">
-      <h1 className="text-2xl font-bold">MyApp</h1>
+      <h1 className="text-2xl font-bold"><Ground-0></Ground-0></h1>
       <div className="flex space-x-4">
         <LoginBtn  />
         <SignupButton />
