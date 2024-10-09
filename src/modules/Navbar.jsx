@@ -28,7 +28,7 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-16 right-4 bg-blue-600 rounded-md shadow-lg p-4 md:hidden">
+        <div className="absolute top-16 right-4  rounded-md shadow-lg p-4 md:hidden">
           <LoginBtn />
           <SignupButton />
         </div>
