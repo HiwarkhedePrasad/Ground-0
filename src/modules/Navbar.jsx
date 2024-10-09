@@ -11,7 +11,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="bg-white shadow">
+        <div className=" shadow">
             <div className="container mx-auto">
                 <div className="flex justify-between items-center py-4 px-2">
                     <h1 className="text-xl font-semibold">Ground-0</h1>
@@ -64,7 +64,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-white shadow-lg px-4 py-2">
+                <div className="md:hidden  shadow-lg px-4 py-2">
                     {isAuthenticated ? (
                         <div className="flex items-center">
                             <img
