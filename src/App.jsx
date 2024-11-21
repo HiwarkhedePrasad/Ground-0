@@ -1,5 +1,6 @@
 import Navbar from "./components/navbar";
-
+import { SearchByLocation } from "./components/SearchByLocation";
+import Home from "./components/home";
 function App() {
   return (
     <Router>
@@ -11,7 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search-location" element={<SearchByLocation />} />
-            <Route path="/profile/:userId" element={<Profile />} />
+            {/* <Route path="/profile/:userId" element={<Profile />} /> */}
           </Routes>
         </main>
    
