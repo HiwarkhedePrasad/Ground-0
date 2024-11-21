@@ -1,16 +1,8 @@
 import axios from 'axios';
 
-// Load the GitHub token from the environment variable
-const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN; // Vite environment variable
-// Or use process.env in React (CRA)
-// const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
-
 const api = axios.create({
   baseURL: 'https://api.github.com',
-  headers: {
-    Accept: 'application/vnd.github.v3+json',
-    Authorization: `token ${GITHUB_TOKEN}`, // Include your token here
-  },
+ 
 });
 
 export const searchUsers = async ({ query, location, page = 1, per_page = 30 }) => {
@@ -43,7 +35,7 @@ export async function getUserRepositories(username) {
   );
 
   const data = await response.json();
-
+ 
   // Assuming the API does not return a totalCount in the response body, but provides it in headers
   const totalCount = parseInt(response.headers.get('X-Total-Count') || '0', 10);
   return { repos: data, totalCount };  // Return both repos and totalCount
