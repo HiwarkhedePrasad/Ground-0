@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { DeveloperCard } from './DeveloperCard';
-import { searchUsers, getUserDetails } from './services/github';
+import { searchUsers,getUserDetails } from '../services/github';
 
 export function SearchByLocation() {
   const [location, setLocation] = useState('');
