@@ -12,7 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search-location" element={<SearchByLocation />} />
-            {/* <Route path="/profile/:userId" element={<Profile />} /> */}
+          <Route path="/profile/:userId" element={<Profile />} /> 
           </Routes>
         </main>
    

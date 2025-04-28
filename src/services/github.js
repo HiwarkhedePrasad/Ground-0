@@ -1,18 +1,17 @@
 import axios from 'axios';
 
-// Create an API client with authentication
-const createApiClient = (token) => {
+// Create an API client without authentication
+const createApiClient = () => {
   return axios.create({
     baseURL: 'https://api.github.com',
     headers: {
-      Authorization: token ? `token ${token}` : '',
       Accept: 'application/vnd.github.v3+json',
     },
   });
 };
 
-// Initialize API client - pass GitHub token when available
-const api = createApiClient(process.env.GITHUB_TOKEN);
+// Initialize API client without authentication
+const api = createApiClient();
 
 // Log API requests and track rate limits
 const logApiRequest = (endpoint, params) => {
@@ -38,14 +37,6 @@ export const searchUsers = async ({ query, location, page = 1, per_page = 30 }) 
       },
     });
     
-    // Track remaining rate limit
-    const rateLimit = {
-      limit: response.headers['x-ratelimit-limit'],
-      remaining: response.headers['x-ratelimit-remaining'],
-      reset: response.headers['x-ratelimit-reset'],
-    };
-    console.log('Rate limit info:', rateLimit);
-    
     return response.data;
   } catch (error) {
     handleApiError(error, 'searchUsers');
@@ -59,14 +50,6 @@ export const getUserDetails = async (username) => {
     logApiRequest(`/users/${username}`, {});
     
     const response = await api.get(`/users/${username}`);
-    
-    // Track remaining rate limit
-    const rateLimit = {
-      limit: response.headers['x-ratelimit-limit'],
-      remaining: response.headers['x-ratelimit-remaining'],
-      reset: response.headers['x-ratelimit-reset'],
-    };
-    console.log('Rate limit info:', rateLimit);
     
     return response.data;
   } catch (error) {
@@ -87,14 +70,6 @@ export const getUserRepositories = async (username, page = 1, per_page = 30) => 
         sort: 'updated',
       },
     });
-    
-    // Track remaining rate limit
-    const rateLimit = {
-      limit: response.headers['x-ratelimit-limit'],
-      remaining: response.headers['x-ratelimit-remaining'],
-      reset: response.headers['x-ratelimit-reset'],
-    };
-    console.log('Rate limit info:', rateLimit);
     
     // Get total count from Link header if available
     const linkHeader = response.headers.link;
